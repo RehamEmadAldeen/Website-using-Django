@@ -1,0 +1,75 @@
+1- python -m venv mgmt
+mgmt = lmstest
+---------------------------------------------------
+2- mgmt\Scripts\activate
+---------------------------------------------------
+بعد كدة انزل الجانجو
+3- pip install django 
+---------------------------------------------------
+هعمل مشروع و اسمية بالاسم اللي عيزاه 
+4- django-admin startproject lms 
+---------------------------------------------------
+بعد كدة عايزة اشغل السيرفر بتاعي
+5- cd lms
+manage.py الملف ده اللي بندير من خلاله المشروع 
+6- python manage.py runserver عشان اشغل السيرفر
+رابط السيرفر
+http://127.0.0.1:8000/
+---------------------------------------------------
+عشام اوقف السيرفر
+7- control + c
+---------------------------------------------------
+8- go to lms -> settings.py -> installed app -> add the name of my new application
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'lms_app',
+]
+
+---------------------------------------------------
+
+9- go to lms --> urls.py --> 
+
+from django.contrib import admin
+from django.urls import path,include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('lms_app.urls')),
+]
+---------------------------------------------------
+
+10- from django.urls import path
+
+---------------------------------------------------
+11- python manage.py collectstatic
+
+---------------------------------------------------
+
+12-  lms_app قاعدة البياتات بتتعمل في ال 
+go to lms_app --> models.py --> create your database
+
+
+13- pip install pillow -->بستخدمها لما اجي اعمل مودلز في الداتا بيز و هشتخدم صور 
+
+14- python manage.py makemigrations بعد ما تعمل الجداول في قاعدة البيانات هتستخده ده 
+
+15- python manage.py migrate -> عشان ابعت الجداول لقاعدة البيانات
+
+16- python manage.py createsuperuser
+username : reham
+password: reham
+##################################
+Notes: 
+- lms -> ده مجلد المشروع اللي بدير بيه مشروعي
+
+- مجموعة من المكتبات كل مكتبة ليها وظيفة معينةdjangoال 
+
+- settings.py --> the brain of project (lms)
+- views.py --> the brain of application (lms_app)
+##################################
